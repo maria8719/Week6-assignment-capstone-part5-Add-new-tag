@@ -6,7 +6,9 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+*{
+  font-family: 'Raleway', sans-serif
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -26,6 +28,48 @@
 
 .App-link {
   color: #61dafb;
+}
+
+img{
+  width: 17vmin;
+  height: 17vmin;
+  margin-right: 2vw;
+  border-radius: 50%;
+  border: 1px solid lightgray;
+  margin-top: 2.5%;
+}
+ 
+.studentContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  text-align: left;
+  padding-top: 2vmin;
+  padding-bottom: 2vmin;
+}
+.studentInfo {
+  width: 75%;
+  order: 2;
+  color: darkslategrey;
+}
+.studentName {
+  font-weight: 750;
+  font-size: calc(8px + 2vmin);
+  color: black;
+}
+.nameShearch {
+  align-self: center;
+  border: none;
+  font-weight: 100;
+  color: #666363;
+  width: 96%;
+  font-size: calc(10px + 1vmin);
+  line-height: calc((9px + 1vmin) * 2);
+  height: calc((10px + 1vmin) * 2);
+  border-bottom: 1px solid rgba(136, 127, 127, 0.438);
+  font-family: 'Raleway', sans-serif;
+  outline: none;
 }
 
 @keyframes App-logo-spin {

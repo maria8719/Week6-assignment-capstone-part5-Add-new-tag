@@ -6,7 +6,7 @@ const URL = "https://api.hatchways.io/assessment/students";
 function App() {
 
   const [studentData, setStudentData] = useState([]); 
-  
+  const [searchName, setSearchsearchName] = useState("");
   const getStudents = (URL) => {
      fetch(URL)
       .then(response => response.json())
@@ -28,18 +28,27 @@ function averageGrades(grades){
     getStudents(URL);
   }, []); 
 
-  
+    
   return (
     <main>
     <ul>
-     {
+    <input className="nameShearch" placeholder="Search by name" onChange={(e) => {setSearchsearchName(e.target.value)}}/>  
+
+     {       
        studentData && 
-        studentData.map((student) => {
+       studentData
+        
+       .filter((studentName) => {
+        return `${studentName.firstName} ${studentName.lastName}`.toUpperCase().includes(searchName.toUpperCase())})
+       .map((student) => {
           return (
-            <div> <img src = {student.pic} /> 
-               <h2>{student.firstName} {student.lastName}
-               </h2> 
-               <div>
+            <div  className="studentContainer">
+              <img src = {student.pic} alt = "picture"/> 
+              <div className='studentInfo'> 
+                <h2 className='studentName'>
+                  {student.firstName.toUpperCase()} {student.lastName.toUpperCase()}
+                </h2> 
+                <div>
                 Email: {student.email} 
                 </div>
                 <div>
@@ -51,7 +60,9 @@ function averageGrades(grades){
                 <div>
                 Average: {averageGrades(student.grades)}%
                 </div>
+              </div>
             </div>
+            
              
            
           )
