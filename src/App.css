@@ -71,6 +71,12 @@ img{
   font-family: 'Raleway', sans-serif;
   outline: none;
 }
+.tagInput{
+  border: none;
+  font-family: 'Raleway', sans-serif;
+  outline: none;
+  border-bottom: 1px solid rgba(136, 127, 127, 0.438);
+}
 
 @keyframes App-logo-spin {
   from {

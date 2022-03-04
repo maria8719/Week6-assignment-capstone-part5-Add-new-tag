@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
+import Student from './Component/Student';
+import Students from './Component/Students'
 
 const URL = "https://api.hatchways.io/assessment/students";
 
@@ -28,7 +30,24 @@ function averageGrades(grades){
     getStudents(URL);
   }, []); 
 
-    
+  /*function addTagtoStudent(tag, studentId) {
+    const targetStudent = studentData.find((studentData) => studentData.id === studentId);
+    if (targetStudent["tags"]) {
+      targetStudent["tags"].push(tag);
+    } else {
+      targetStudent["tags"] = [tag];
+    }
+
+    setStudentData([...studentData]);
+  }
+*/
+
+const addTagtoStudent = (tag) => {
+   const newstudentData = [...studentData, {tag}]  
+   setStudentData(newstudentData);
+};
+
+
   return (
     <main>
     <ul>
@@ -59,6 +78,12 @@ function averageGrades(grades){
                 </div>
                 <div>
                 Average: {averageGrades(student.grades)}%
+                </div><br />
+               
+            
+          
+                <div>
+
                 </div>
               </div>
             </div>
@@ -67,9 +92,13 @@ function averageGrades(grades){
            
           )
         })
+        
      }
+    
+    <Students  onAddTag={addTagtoStudent} />
      </ul>
     </main>
+     
   );
 }
 
